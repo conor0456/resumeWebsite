@@ -1,0 +1,68 @@
+.btn
+{
+    margin:5px;
+    height:35px;
+}
+body
+{
+    background-color: white;
+}
+.divHeading
+{
+    font-size:50px;
+    font-family:'Dancing Script', cursive;
+    text-align:center;
+    padding-bottom: 10px;
+}
+.greyWindow
+{
+	background-color: #e7e7e7;
+}
+.headerText
+{
+    font-size: 60px;
+    color: white;
+    text-align: center;
+    
+    padding-top: 15%;
+    font-family: 'bebas neue', bebas, helvetica, sans-serif;
+    font-weight: 100;
+    padding-left: 30%;
+
+}
+.headerSubText
+{
+	font-size: 25px;
+    color: white;
+    text-align: center;
+    font-weight: 100;
+    font-family: 'gotham rounded',arial,sans-serif;
+   
+    padding-left: 30%;
+}
+.paraPic
+{
+    height:100vh;
+}
+.projectWindow
+{
+	height:200px;
+
+}
+.windowHeader
+{
+	padding-top: 30px;
+	font-size: 40px;
+    color: black;
+    text-align: center;
+    font-weight: 100;
+    font-family: 'gotham rounded',arial,sans-serif;
+}
+.whiteWindow
+{
+	background-color: white;
+}
+
+
+
+

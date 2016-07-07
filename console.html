@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Conor D'Arcy</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/console.css">
+    
+  </head>
+
+  <body>
+
+  <div class="container screen" >
+    <div id="console" class="console">
+      <span id="appendHere"></span>
+      <span id="identifier"></span><span id="typeHere"></span><span id="cursor">|</span>
+    </div>
+  </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- parallax plugin -->
+    <script src="js/parallax.min.js"></script>
+    <!-- Typed JS -->
+    <script src="js/typed.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/jquery.typeit/4.2.3/typeit.min.js"></script>
+
+    <script src="js/conorType.js"></script>
+
+<script>
+  
+var actingClass = function(text,kind,time)
+{
+  this.text=text;
+  this.kind=kind;
+  this.time=time;
+}
+var acts = [];
+acts.push(new actingClass("ssh conor@23.243.52.201","c",1000));
+acts.push(new actingClass("Welcome to Conor OS 1.2 <br>1 package can be updated.<br>0 updates are security updates.<br><br>*** System restart required ***<br>Last login: Mon Jul  4 12:03:40 2016 from 192.168.1.252","r",1190))
+acts.push(new actingClass("whoami","c",2000));
+acts.push(new actingClass("employer","r",400));
+acts.push(new actingClass("ls","c",3000));
+acts.push(new actingClass("whyHireMe?   statsNotes.txt<br>whoIsConor   projects.txt","r",600));
+acts.push(new actingClass("vim whoIsConor","c",4000));
+acts.push(new actingClass("My name is Conor D'Arcy. I am a student at UCLA. I study Statistics and Mathematics. I will graduate in 2017. ","r",1000));
+var user = "employer@21.243.54.213:~$ "
+var captionLength = 0;
+var caption = '';
+
+
+$(document).ready(function() {
+    setInterval('cursorAnimation()', 800);
+    captionEl = $('#typeHere');
+    var time=0;
+    for(i in acts)
+    {
+      time=time+acts[i].time;
+      setTimeout(writeCommand,time);
+    }
+  $("#identifier").html(user); 
+});
+
+
+function writeCommand(text)
+{
+  act=acts.shift();
+  caption=act.text;
+  if(act.kind=="c")
+  {
+    type();    
+  }
+  else
+  {
+    $("#appendHere").append(act.text+"<br>");
+  }
+}
+
+
+function type() {
+    captionEl.html(caption.substr(0, captionLength++));
+    if(captionLength < caption.length+1) {
+        setTimeout('type()', 50);
+    } else {
+        captionLength = 0;
+        caption = '';
+        $("#appendHere").append(user+$("#typeHere").html()+"<br>");$("#typeHere").html("");
+        
+    }
+}
+
+function cursorAnimation() {
+
+    $('#cursor').animate({
+        opacity: 0
+    }, 'fast', 'swing').animate({
+        opacity: 1
+    }, 'fast', 'swing');
+}
+
+</script>
+
+
+  </body>
+
+
+
+
+
+</html>

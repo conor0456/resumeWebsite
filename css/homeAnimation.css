@@ -1,0 +1,61 @@
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.bouncer
+{
+  animation-duration: 2s;
+  animation-name: bounceIn;
+}
+
+
+
+
+
+
+
+body {
+  background-color: #000000;
+}
+
+.terminal {
+  color: #00FE44;
+  line-height: 22px;
+}
+.terminal:after {
+  position: absolute;
+  top: 214px;
+  left: 55px;
+  width: 6px;
+  height: 18px;
+  background-color: #00FE44;
+  content: "";
+  -moz-animation: blink 1s steps(2, start) infinite;
+  -webkit-animation: blink 1s steps(2, start) infinite;
+  animation: blink 1s steps(2, start) infinite;
+}
+@-moz-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+
