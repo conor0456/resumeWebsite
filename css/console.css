@@ -33,16 +33,19 @@
     visibility: hidden;
   }
 }*/
+::-webkit-scrollbar { 
+    display: none; 
+}
 body{
   background-color: black;
 }
 .console
 {
   color: white;
-  height: 400px;
+  height: 70vh;
   width:60%;
   margin:10% 20% 0% 20%;
-  overflow-y: hidden;
+  overflow-y: auto;
   overflow-x: auto;
   font-family: "Lucida Sans Typewriter", "Lucida Console", Monaco, "Bitstream Vera Sans Mono", monospace;
 

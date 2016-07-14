@@ -22,7 +22,7 @@
       <span id="identifier"></span><span id="typeHere"></span><span id="cursor">|</span>
     </div>
   </div>
-
+  <button>Skip Animation</button>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -46,14 +46,28 @@ var actingClass = function(text,kind,time)
 }
 var acts = [];
 acts.push(new actingClass("ssh conor@23.243.52.201","c",1000));
-acts.push(new actingClass("Welcome to Conor OS 1.2 <br>1 package can be updated.<br>0 updates are security updates.<br><br>*** System restart required ***<br>Last login: Mon Jul  4 12:03:40 2016 from 192.168.1.252","r",1190))
+acts.push(new actingClass("Welcome to Darcy OS 1.2 <br>1 package can be updated.<br>0 updates are security updates.<br><br>*** System restart required ***<br>Last login: Mon Jul  4 12:03:40 2016 from 192.168.1.252","r",2000));
+acts.push(new actingClass("vim intro.txt","c",2000));
+acts.push(new actingClass("What follows will be a short introduction of me. While cool, it can be a little long! Feel free to go straight to my resume website by clicking the button on the bottom left.","r",800));
 acts.push(new actingClass("whoami","c",2000));
-acts.push(new actingClass("employer","r",400));
+acts.push(new actingClass("employer","r",800));
 acts.push(new actingClass("ls","c",3000));
-acts.push(new actingClass("whyHireMe?   statsNotes.txt<br>whoIsConor   projects.txt","r",600));
+acts.push(new actingClass("whyHireMe?  csProjects   statsProjects<br>whoIsConor   projects.txt","r",1000));
 acts.push(new actingClass("vim whoIsConor","c",4000));
-acts.push(new actingClass("My name is Conor D'Arcy. I am a student at UCLA. I study Statistics and Mathematics. I will graduate in 2017. ","r",1000));
-var user = "employer@21.243.54.213:~$ "
+acts.push(new actingClass("Hi! My name is Conor D'Arcy. I am a student at UCLA and I will graduate in 2017 with a BS in Statistics and a minor in Mathematics. While my formal education is in math, I have experience in the cs field. ","r",1000));
+acts.push(new actingClass("vim csProjects","c",8000));
+acts.push(new actingClass("My projects range from cryptography to web design. Here are some of my recent projects<br><br><a href='http://conor0456.github.io/brightonLite/' target='_blank' style='text-decoration: none;cursor:pointer; color:red;'>Brighton Investments</a>: Ground up development and design of the companies online presence. Including data analytics and SEO.<br><br><a href='https://github.com/conor0456/vectorCrypt' target='_blank' style='text-decoration: none;cursor:pointer;color:red;'>vectorCrypt</a>: Developed a fast, php-written hash based on the foundational principles of linear algebra. Mathematically proven to be collision free, removing the possibility of the birthday paradox attack.<br><br><a href='https://github.com/conor0456/JAX' target='_blank' style='text-decoration: none;cursor:pointer;color:red;'>JAX</a>: This was my first attempt at artificial intelligence. Written in python, JAX helps users manage their files, stocks, purchases, and web interactions. Communication occurs through voice or text.","r",1000));
+acts.push(new actingClass("vim statsProjects","c",12000));
+acts.push(new actingClass("I have competed in UCLA Datafest twice now, both years in the best reccomendation category. <br>Edmunds.com: My team and I created a click density variable, for which we generated a threshold at which a user was 95% likely to purchase a car. By using this threshold, Edmunds could cater their advertising to those below the threshold to optimize their spending. <br>Ticketmaster: My team and I produced a pricing model with varying rates resulting from time, location, and genre of event. By using our model, ticketmaster could increase their overall revenue. ","r",1000));
+acts.push(new actingClass("vim whyHireMe","c",12000));
+acts.push(new actingClass("","r",1000));
+
+
+
+
+
+
+var user = "<span style='color:LightSkyBlue'>employer</span>@<span style='color:LightGreen'>21.243.54.213:</span>~$ "
 var captionLength = 0;
 var caption = '';
 
@@ -77,12 +91,16 @@ function writeCommand(text)
   caption=act.text;
   if(act.kind=="c")
   {
-    type();    
+    type();
   }
   else
   {
     $("#appendHere").append(act.text+"<br>");
+    $("#identifier").show();
+    $("#cursor").show();
   }
+  var objDiv = document.getElementById("console");
+  objDiv.scrollTop = objDiv.scrollHeight;
 }
 
 
@@ -94,6 +112,9 @@ function type() {
         captionLength = 0;
         caption = '';
         $("#appendHere").append(user+$("#typeHere").html()+"<br>");$("#typeHere").html("");
+        $("#identifier").hide();
+        $("#cursor").hide();
+
         
     }
 }
@@ -105,6 +126,7 @@ function cursorAnimation() {
     }, 'fast', 'swing').animate({
         opacity: 1
     }, 'fast', 'swing');
+
 }
 
 </script>
