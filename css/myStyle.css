@@ -1,3 +1,29 @@
+.course
+{
+    text-align: left;
+    padding-top: 20px;
+    font-size: 14px;
+}
+.requiredSkills
+{
+    padding-top: 20px;
+    text-align: center;
+}
+.description
+{
+    text-align: left;
+    font-size: 12px;
+}
+.obligations
+{
+    padding-top: 30px;
+    font-size: 16px;
+}
+.fullHeightDiv
+{
+    height:auto;
+    min-height: 100vh;
+}
 .btn
 {
     margin:5px;
@@ -22,23 +48,35 @@ body
 {
     font-size: 60px;
     color: white;
-    text-align: center;
+    text-align: left;
     
-    padding-top: 15%;
+    padding-top: 10%;
     font-family: 'bebas neue', bebas, helvetica, sans-serif;
     font-weight: 100;
-    padding-left: 30%;
+    padding-left: 0%;
 
 }
 .headerSubText
 {
-	font-size: 25px;
+	font-size: 20px;
     color: white;
-    text-align: center;
+    text-align: left;
     font-weight: 100;
-    font-family: 'gotham rounded',arial,sans-serif;
-   
-    padding-left: 30%;
+    /*font-family: 'gotham rounded',arial,sans-serif;*/
+    font-family: 'bebas neue', bebas, helvetica, sans-serif;
+
+    padding-top: 5%;
+}
+.headerSubSubText
+{
+    font-size: 20px;
+    color: white;
+    text-align: left;
+    font-weight: 100;
+    /*font-family: 'gotham rounded',arial,sans-serif;*/
+    font-family: 'bebas neue', bebas, helvetica, sans-serif;
+
+    padding-top: 0%;
 }
 .paraPic
 {
