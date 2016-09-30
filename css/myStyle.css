@@ -1,5 +1,24 @@
-.expandable
+.spanner
 {
+    margin-left: 0px;
+    text-align: left;
+}
+.hobbies
+{
+    background-color: #ddd;
+    min-height:200vh;
+    height:auto;
+    margin-top: 0px;
+    padding-bottom: 300px;
+}
+.motorcycles
+{
+    width:80%;
+    margin-left: 10%;
+    min-height:400px;
+    background-color: #ddd;
+    height:auto;
+    
     
 }
 .course
