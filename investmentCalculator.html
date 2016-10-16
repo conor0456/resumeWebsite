@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<!-- todaymade -->
+<html lang="en">
+
+<script src="js/jquery-1.11.3.min.js"></script>
+<!-- Bootstrap -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<script src="js/bootstrap.min.js"></script>
+<!-- /Bootstrap -->
+<!-- Custom CSS -->
+<link rel="stylesheet" type="text/css" href="css/homepageStyle.css">
+<!-- /Custom CSS -->
+<link rel="apple-touch-icon" sizes="57x57" href="img/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png">
+    <link rel="manifest" href="img/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+<script src="js/parallax.min.js"></script>
+<script src="js/bootstrap-slider.js"></script>
+<script src="js/chart.bundle.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="css/bootstrap-slider.css">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="Conor D'Arcy">
+<script>
+	$(document).ready
+	(
+		function()
+		{
+			$('.slider').slider();
+			makeGraph();
+		}
+	);
+	function numberWithCommas(x) {
+	    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+	}
+</script>
+	<body>
+		<div class="container-fluid" style='font-family:"DIN Web", "Hiragino Sans GB", STXihei, 华文细黑, "Microsoft YaHei", 微软雅黑, sans-serif;font-weight:100;'>
+		<div style="background-color:#eee;border-radius:20px;margin-left:10%;margin-right:10%;margin-top:30px;padding-bottom:20px;">
+			<div id="percentileBody" class="container" style="width:80%;padding-top:30px;margin-left:10%;background-color:#eee">
+	        			<form>
+							<div class="col-sm-4">
+		        				<div class="form-group">
+							    	<label for="incomeSlider">Annual income</label><br>
+							    	<input type="text" class="form-control slider" id="incomeSlider" onchange="triggerFlag(1);makeGraph()" data-slider-min="0" data-slider-max="200000" data-slider-step="5000" data-slider-value="40000">
+								</div>
+							</div>
+							<div class="col-sm-4">
+			        				<div class="form-group">
+								    	<label for="savedMonthly">Amount saved per month</label><br>
+								    	<input type="text" class="form-control slider" id="savedMonthly" onchange="triggerFlag(2);makeGraph()" data-slider-min="0" data-slider-max="3000" data-slider-step="50" data-slider-value="300">
+									</div>	
+							</div>
+							
+							<div class="col-sm-4">
+								<div class="form-group">
+	    							<label for="currentlySavedSlider">Amount currently saved</label><br>
+							    	<input type="text" class="form-control slider" id="currentlySavedSlider" onchange="triggerFlag(3);makeGraph()" data-slider-min="0" data-slider-max="250000" data-slider-step="5000" data-slider-value="20000">
+	  							</div>
+							</div>
+							<br>
+							<div class="centered">
+								<!-- <button data-toggle="collapse" data-target="#collapsableOptions" id="moreOptionsButton" class="btn btn-green-on-white">More options</button> -->
+							</div>
+								
+							
+							<div class="" id="">
+								
+								<div class="col-sm-4">
+									<div class="form-group">
+							    	
+										<label for="retirementCostSlider">Retirement cost (monthly)</label><br>
+							    		<input type="text" class="form-control slider" id="retirementCostSlider" onchange="makeGraph()" data-slider-min="0" data-slider-max="10000" data-slider-step="500" data-slider-value="5000">
+
+									</div>
+								</div>	
+								<div class="col-sm-4">
+			        				<div class="form-group">
+								    	<label for="retirementAge">Expected age of retirement</label><br>
+								    	<input type="text" class="form-control slider" id="retirementAge" onchange="makeGraph()" data-slider-min="45" data-slider-max="80" data-slider-step="1" data-slider-value="65">
+									</div>	
+								</div>
+								<div class="col-sm-4">
+			        				<!-- <div class="form-group">
+								    	<label for="pensionContribution">Pension Contribution (monthly)</label>
+								    	<input type="text" class="form-control slider" id="pensionContribution" onchange="makeGraph()" data-slider-min="0" data-slider-max="12000" data-slider-step="500" data-slider-value="0">
+									</div>	 -->
+									<div class="form-group">
+								    	<label for="returnRateSlider">Annual rate of return</label><br>
+								    	<input type="text" class="form-control slider" id="returnRateSlider" onchange="makeGraph()" data-slider-min="0" data-slider-max="15" data-slider-step="1" data-slider-value="6">
+									</div>
+								</div>
+							</div>
+	        			</form>
+	        		</div>
+	        		<div id="percentileGraph" class="container" style="padding-top:40px;width:80%;margin-left:10%;background-color:#eee">
+	        			<div class="col-sm-6">
+	        				<canvas id="myChart" width="100" height="100" style="max-width:450px;max-height:450px;"></canvas>
+	        			</div>
+	        			<div class="col-sm-6" style="width:50%;padding-top:40px;margin-left:0px;font-size:18px;font-family:gkhs-n4,sans-serif;font-weight:100;" >
+	        				With <span id="currentSaveSpan" class="greenLetters"></span> dollars currently in your retirement plan and an average monthly saving of <span class="greenLetters" id="monthlySavings"> </span> dollars, you will have approximately <span class="greenLetters" id="finalTotal"> </span><span class="greenLetters">,000</span> dollars when you retire at the age of <span class="greenLetters" id="retirementAgeSpan"></span>. <span id="hiddenSpan" >With an average monthly retirement budget of <span class="greenLetters" id="retirementRequirement"> </span> and an average annual return of <span id="returnSpan" class="greenLetters"></span>, this money will last you until you are <span class="greenLetters" id="expireAge"> </span>, leaving behind <span id="leftoverMoney" class="greenLetters"></span> dollars.</span>
+	        			</div>
+	        			<script>
+							var annualIncomeFlag=false;
+							var monthlySavedFlag=false;
+							var totalSavedFlag=false;
+	    					function triggerFlag(type)
+	    					{
+	    						if(type==1)
+	    						{
+	    							annualIncomeFlag=true;
+	    						}
+	    						if(type==2)
+	    						{
+	    							monthlySavedFlag=true;
+	    						}
+	    						if(type==3)
+	    						{
+	    							totalSavedFlag=true;
+	    						}
+	    						
+	    					}
+							function makeGraph()
+							{
+								if(annualIncomeFlag+monthlySavedFlag+totalSavedFlag==3)
+								{
+									$("#hiddenOptions").removeClass("hidden").addClass("showing");
+									$("#hiddenSpan").removeAttr("hidden");
+								}
+								var socialSecurityMonthly=1341;
+								var currentSalary=Number($("#incomeSlider").val());
+								var currentAge=35;
+								var retirementCost=Number($("#retirementCostSlider").val());				
+								var currentSaved=Number($("#currentlySavedSlider").val()/1000);
+								var pensionContribution= 0;//Number($("#pensionContribution").val());
+								var returnRate=1+Number($("#returnRateSlider").val()/100);
+								var monthlySaved=Number($("#savedMonthly").val());
+								var comparisonCurrentSaved;
+								var comparisonMonthlySaved;
+								var retirementAge=Number($("#retirementAge").val());
+								var labelArray=[];
+								var userValueArray=[];
+								var comparisonValueArray=[];
+								var finalTotal;
+								//From http://www.investopedia.com/articles/personal-finance/011216/average-retirement-savings-age-2016.asp
+								if(currentAge<30)
+								{
+									comparisonCurrentSaved=16;
+								}
+								else if(currentAge<40)
+								{
+									comparisonCurrentSaved=40;
+								}
+								else if(currentAge<50)
+								{
+									comparisonCurrentSaved=63;
+								}
+								else if(currentAge<60)
+								{
+									comparisonCurrentSaved=117;
+								}
+								else
+								{
+									comparisonCurrentSaved=172;
+								}
+								comparisonMonthlySaved=Math.round((currentSalary/12)*.15);
+								for(var i = currentAge; i<= $("#retirementAge").val(); i++)
+								{
+									labelArray.push(String(i));
+									if(i==currentAge)
+									{
+										userValueArray.push(currentSaved);
+										comparisonValueArray.push(comparisonCurrentSaved);
+									}
+									else
+									{
+										userValueArray.push((userValueArray[i-currentAge-1]+(.012*monthlySaved))*returnRate);
+										finalTotal=(userValueArray[i-currentAge-1]+(.012*monthlySaved))*returnRate;
+										comparisonValueArray.push((comparisonValueArray[i-currentAge-1]+(.012*comparisonMonthlySaved))*returnRate);
+										
+									}	
+								}
+								$("#currentSaveSpan").html(numberWithCommas(currentSaved*1000));
+								$("#monthlySavings").html(numberWithCommas($("#savedMonthly").val()));
+								$("#finalTotal").html(numberWithCommas(Math.round(finalTotal)));
+								$("#retirementAgeSpan").html($("#retirementAge").val());
+								$("#retirementRequirement").html(numberWithCommas(retirementCost));
+								$("#returnSpan").html(Math.round(Number(returnRate-1)*100)+"%");
+								var moneyLeft=finalTotal*1000;
+								var expireAge=retirementAge;
+								while(moneyLeft>0 && expireAge<95)
+								{
+									moneyLeft=moneyLeft-(12*retirementCost)+(12*pensionContribution)+(12*socialSecurityMonthly);
+									moneyLeft=1.06*moneyLeft;
+									expireAge++;
+									
+								}				
+								$("#expireAge").html(expireAge);
+								if(moneyLeft<0)
+								{moneyLeft=0;}
+								$("#leftoverMoney").html(numberWithCommas(Math.round(moneyLeft)));
+								var ctx = document.getElementById("myChart");
+								var myChart = new Chart(ctx, {
+								    type: 'line',
+								    data: {
+								        labels: labelArray,
+								        datasets: [{
+								            label: 'Your Portfolio (With Brighton, in thousands)',
+								            data: userValueArray,
+								            backgroundColor: [
+								                'rgba(255, 99, 132, 0.2)',
+								                
+								            ],
+								            borderColor: [
+								                'rgba(255, 99, 132, 1)',
+								                
+								            ],
+								            borderWidth: 1
+								        },
+								        {
+								        	label: 'Average Portfolio (For your age and income)',
+								        	data: comparisonValueArray,
+								        	
+								        }
+
+
+
+								        ]
+								    },
+								    options: {
+								        scales: {
+								            yAxes: [{
+								                ticks: {
+								                    beginAtZero:true
+								                }
+								            }]
+								        }
+								    }
+								});
+						}
+						</script>
+	        		</div>
+				</div>
+			</div>
+	</body>
+</html>
