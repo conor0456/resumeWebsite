@@ -16,13 +16,7 @@ return $password;
 
 function store($user,$passwd)
 {	
-	$dbhostname = "vectorCryptUser.db.10258168.hostedresource.com";
-	$dbusername = "vectorCryptUser";
-	$dbname = "vectorCryptUser";
-	$dbpassword = "Conor6540!";
-	$dbusertable = "vectorCryptUsers";
-	mysql_connect($dbhostname, $dbusername, $dbpassword) OR DIE ("Unable to connect to database! Please try again later.");
-	mysql_select_db($dbname);
+	include 'connect.php';
 	$query = "SELECT password FROM $dbusertable WHERE username='$username'";
 	$result = mysql_query($query);
 	if(is_null($result))

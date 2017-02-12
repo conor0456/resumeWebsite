@@ -1,9 +1,5 @@
 <?php
-	$dbhostname = "vectorCryptUser.db.10258168.hostedresource.com";
-	$dbusername = "vectorCryptUser";
-	$dbname = "vectorCryptUser";
-	$dbpassword = "Conor6540!";
-	$dbusertable = "websiteVisitors";
+	include 'connect.php';
 	$ip=$_SERVER['REMOTE_ADDR'];
 	$details = json_decode(file_get_contents("http://ipinfo.io/{$ip}/json"));
 	$city=$details->city; 
@@ -15,8 +11,7 @@
 		exit(0);
 	}
 	//Check if this user has visited before 
-	mysql_connect($dbhostname, $dbusername, $dbpassword) OR DIE ("Unable to connect to database! Please try again later.");
-	mysql_select_db($dbname);
+	
 	
 	$query = "SELECT * FROM $dbusertable WHERE ip='$ip'";
 	$result = mysql_query($query);
@@ -37,8 +32,6 @@
 	
 	
 	
-	mysql_connect($dbhostname, $dbusername, $dbpassword) OR DIE ("Unable to connect to database! Please try again later.");
-	mysql_select_db($dbname);
 	$query = "Insert into $dbusertable values('" . $ip ."','" . date('l jS \of F Y h:i:s A') ."','".$city."');";
 	$result = mysql_query($query);
 	
