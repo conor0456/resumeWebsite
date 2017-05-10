@@ -1,5 +1,5 @@
 <?php
-	inlude 'connect.php';
+	include 'connect.php';
 	$query = "SELECT * FROM $dbusertable;";
 	$result = mysql_query($query);
 	echo '<style>th {

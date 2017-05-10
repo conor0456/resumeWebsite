@@ -15,7 +15,7 @@
 	
 	$query = "SELECT * FROM $dbusertable WHERE ip='$ip'";
 	$result = mysql_query($query);
-	
+	date_default_timezone_set('America/Los_Angeles');
 	if(mysql_num_rows($result) != 0)
 	{	
 		$message = "A returning user looked at your website! \nLocation: $city\nIP: $ip \nTime: " . date('l jS \of F Y h:i:s A');
